@@ -7,8 +7,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run hash check script
+        run: bash scripts/check-workflows-use-hashes.sh
+
       - name: Good checkout with SHA
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Bad checkout with tag
         uses: actions/checkout@v4
